@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fujitsu- HTML CSS JS Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="js/colorbox-master/example1/colorbox.css">
+    <style>
+        /*Embedded styles are more powerful than external styles*/
+
+        p {
+            color: black;
+        }
+
+        body>aside {
+            min-height: auto;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header" class="top-header">
+        <h1>HTML CSS JS Essentials</h1>
+        <nav>
+            <ul>
+                <li> <a href="index.html">home</a> </li>
+                <li> <a href="products.html">products</a> </li>
+                <li> <a href="contact.html">contact</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <aside>
+        <article>
+            <figure class="float-right fade-and-spin"> <img src="assets/sm-logo.gif" alt="SM Logo">
+                <figcaption>SM Logo</figcaption>
+            </figure>
+            <header>
+                <h1>Featured Promotion</h1>
+            </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque illo amet enim voluptatibus tempore, quasi atque voluptatem accusamus velit unde, odit suscipit neque tempora, doloremque dolor sequi. Ipsa totam, dicta.</p>
+            <p>Aut corporis, necessitatibus nulla sapiente. Est nihil, excepturi incidunt magnam id exercitationem illum expedita maiores, culpa impedit voluptatum tempora cupiditate illo adipisci alias officiis enim dolor! Nulla, a autem numquam.</p>
+        </article>
+    </aside>
+    <section class="clear-float">
+        <h1>Products</h1>
+        <table border="1" class="product-table">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+    <footer> &copy; Fujitsu 2018 | <a href="tel:01618885555">Call us on 0161 888 5555</a> | <a href="terms.pdf">Terms &amp; Conditions</a> </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+    <script src="js/colorbox-master/jquery.colorbox-min.js"></script>
+    
+    <script>
+        
+    var view = {
+        
+        renderData: function(data){
+            var numItems = data.cars.length;
+            //loop thru each car and create a <tr>
+            for(var i = 0 ; i < numItems ; i++){
+                var rowHTML = '<tr>';
+                rowHTML += '<td>' + data.cars[i].make + '</td>';
+                rowHTML += '<td>' + data.cars[i].model + '</td>';
+                rowHTML += '<td>' + data.cars[i].description + '</td>';
+                rowHTML += '<td>' + data.cars[i].cost + '</td>';
+rowHTML += '<td><a href="images2/'+data.cars[i].imageFile+'" rel="car"><img src="images2/' + data.cars[i].imageFile + '" width="100"></a></td>';
+                rowHTML += '</tr>';
+                $('.product-table tbody').append(rowHTML);
+            }//end of for loop
+            //after for loop invoke colobox
+            $('a[rel=car]').colorbox({width:'50%'});
+        }
+        
+    }   
+    
+    var communicator = {
+        
+        getData: function(dataUrl){
+            $.ajax({
+                url: dataUrl,
+                type: 'get',
+                dataType: 'json',
+                success: function(data){
+                    view.renderData(data);
+                },
+                error: function(xmlHttpRequest,status,message){
+                    console.log(message);
+                }
+            });
+        }
+        
+    }
+    
+    //go get the data
+    communicator.getData('data/cars.json');
+    
+    
+    </script>
+    
+    
+    
+    
+    
+</body>
+
+</html>

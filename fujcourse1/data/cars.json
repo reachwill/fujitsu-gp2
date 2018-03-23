@@ -1,0 +1,40 @@
+{
+    
+    "cars" : [{
+            "make": "Maserati",
+            "model": "Gran Turismo",
+            "description": "A nice car",
+            "cost": "85000",
+            "imageFile": "image1.jpeg",
+            "productId": "0001"
+        },{
+            "make": "Maserati",
+            "model": "Gran Turismo",
+            "description": "A really's nice car",
+            "cost": "95000",
+            "imageFile": "image2.jpeg",
+            "productId": "0002"
+        },{
+            "make": "Maserati",
+            "model": "Quattroporte",
+            "description": "A big car",
+            "cost": "125000",
+            "imageFile": "image3.jpeg",
+            "productId": "0003"
+        },{
+            "make": "Maserati",
+            "model": "QC",
+            "description": "A fast car",
+            "cost": "285000",
+            "imageFile": "image4.jpeg",
+            "productId": "0004"
+        },{
+            "make": "Maserati",
+            "model": "Le Mans",
+            "description": "The fastest of all the cars",
+            "cost": "585000",
+            "imageFile": "image5.jpeg",
+            "productId": "0005"
+        }]
+    
+}

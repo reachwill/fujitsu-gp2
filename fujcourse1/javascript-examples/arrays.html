@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <figure>
+
+        <img id="img" width="100%">
+        <figcaption id="imgCaption"></figcaption>
+
+    </figure>
+
+
+    <script>
+
+        var cars = [{
+            make: 'Maserati',
+            model: 'Gran Turismo',
+            description: 'A nice car',
+            cost: '85000',
+            imageFile: 'image1.jpeg'
+        },{
+            make: 'Maserati',
+            model: 'Gran Turismo',
+            description: 'A really&apos;s nice car',
+            cost: '95000',
+            imageFile: 'image2.jpeg'
+        },{
+            make: 'Maserati',
+            model: 'Quattroporte',
+            description: 'A big car',
+            cost: '125000',
+            imageFile: 'image3.jpeg'
+        },{
+            make: 'Maserati',
+            model: 'QC',
+            description: 'A fast car',
+            cost: '285000',
+            imageFile: 'image4.jpeg'
+        },{
+            make: 'Maserati',
+            model: 'Le Mans',
+            description: 'The fastest of all the cars',
+            cost: '585000',
+            imageFile: 'image5.jpeg'
+        }];
+
+        var randomNum = Math.floor(Math.random() * cars.length);
+
+        console.log(cars[randomNum].cost);
+
+        document.getElementById('img').src = '../images2/' + cars[randomNum].imageFile;
+        
+        var caption = cars[randomNum].make + '<br>';
+        caption += cars[randomNum].model + '<br>';
+        caption += cars[randomNum].description + '<br>';
+        caption += cars[randomNum].cost + '<br>';
+        
+        document.getElementById('imgCaption').innerHTML = caption;
+        
+    </script>
+
+
+
+
+</body>
+
+</html>
